@@ -9,7 +9,7 @@ public class Main {
         employees[3] = new Employee("Иванов", "Максим", "Викторович", 1, 180_000f);
 
         EmployeeList(employees);
-
+        System.out.println("Сумма затрат на зарплаты на месяц: " + TotalSalaryByMonth(employees) + " руб.");
     }
 
     // Получить список всех сотрудников со всеми имеющимися по ним данными
@@ -21,4 +21,15 @@ public class Main {
         }
     }
 
+    // Посчитать сумму затрат на зарплаты в месяц.
+    public static float TotalSalaryByMonth(Employee[] employees) {
+        float totalSalary = 0;
+
+        for (Employee employee : employees) {
+            if (employee != null) {
+                totalSalary += employee.getSalary();
+            }
+        }
+        return totalSalary;
+    }
 }
