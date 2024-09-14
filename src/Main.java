@@ -39,6 +39,4 @@ public class Main {
         employees.EmployeeList();
         employees.FullNameListSortedByDept();
     }
-
-
 }
