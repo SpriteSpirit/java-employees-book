@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class EmployeeBook {
     private final Employee[] employees;
 
@@ -78,6 +80,42 @@ public class EmployeeBook {
                     employee.setSalary(salary);
                 }
             }
+        }
+    }
+
+    // Изменить отдел сотрудника по ФИО
+    public void UpdateEmployee(String lastName, String firstName, String middleName,  int dept) {
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getLastName().equalsIgnoreCase(lastName) &&
+                        employee.getFirstName().equalsIgnoreCase(firstName) &&
+                        employee.getMiddleName().equalsIgnoreCase(middleName)) {
+                    employee.setDepartment(dept);
+                }
+            }
+        }
+    }
+
+    // Получить Ф. И. О. всех сотрудников по отделам
+    public void FullNameListSortedByDept() {
+        Map<Integer, List<Employee>> employeesByDept = new HashMap<>();
+
+        for (Employee employee : employees) {
+            if (employee != null) {
+                employeesByDept.computeIfAbsent(employee.getDepartment(), keyDept -> new ArrayList<>()).add(employee);
+            }
+        }
+
+        for (Map.Entry<Integer, List<Employee>> entry : employeesByDept.entrySet()) {
+            System.out.println("_______________________________");
+            System.out.println("Отдел №" + entry.getKey() + ": ");
+            System.out.println("-::-::-::-::-::-::-::-::-::-::-");
+
+            for (Employee employee : entry.getValue()) {
+                System.out.println(employee.getFullName());
+            }
+
+            System.out.println("_______________________________");
         }
     }
 

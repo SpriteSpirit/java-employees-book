@@ -33,9 +33,11 @@ public class Main {
         employees.DeleteEmployee("Иванов", "Максим", "Викторович");
         employees.DeleteEmployee(2);
 
-        employees.UpdateEmployee("Петров", "Петр", "Иванович", 3, 160000);
-        employees.UpdateEmployee("Петров", "Петр", "Иванович", 165000);
+        employees.UpdateEmployee("Петров", "Петр", "Иванович", 3, 160000f);
+        employees.UpdateEmployee("Петров", "Петр", "Иванович", 165000f);
+        employees.UpdateEmployee("Петров", "Петр", "Иванович", 1);
         employees.EmployeeList();
+        employees.FullNameListSortedByDept();
     }
 
 
