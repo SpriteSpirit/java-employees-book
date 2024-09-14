@@ -142,6 +142,19 @@ public class Employee {
     }
 
     /**
+     * Возвращает ФИО сотрудника.
+     *
+     * @return ФИО или ФИ сотрудника
+     */
+    public String getFullName() {
+        if (middle_name != null && !middle_name.isBlank()) {
+            return last_name + " " + first_name + " " + middle_name;
+        } else {
+            return last_name + " " + first_name;
+        }
+    }
+
+    /**
      * Возвращает отдел сотрудника.
      *
      * @return отдел сотрудника
