@@ -7,15 +7,15 @@ public class Employee {
     /**
      * Имя сотрудника
      */
-    private String first_name;
+    private String firstName;
     /**
      * Фамилия сотрудника
      */
-    private String last_name;
+    private String lastName;
     /**
      * Отчество сотрудника
      */
-    private String middle_name;
+    private String middleName;
     /**
      * Номер отдела, в котором работает сотрудник
      */
@@ -36,17 +36,17 @@ public class Employee {
     /**
      * Конструктор с отчеством.
      *
-     * @param last_name   Фамилия сотрудника
-     * @param first_name  Имя сотрудника
-     * @param middle_name Отчество сотрудника
+     * @param lastName   Фамилия сотрудника
+     * @param firstName  Имя сотрудника
+     * @param middleName Отчество сотрудника
      * @param department  Отдел сотрудника
      * @param salary      Зарплата сотрудника
      */
 
-    public Employee(String last_name, String first_name, String middle_name, int department, float salary) {
-        setLast_name(last_name);
-        setFirst_name(first_name);
-        setMiddle_name(middle_name);
+    public Employee(String lastName, String firstName, String middleName, int department, float salary) {
+        setLastName(lastName);
+        setFirstName(firstName);
+        setMiddleName(middleName);
         setDepartment(department);
         setSalary(salary);
         this.id = next_id++;
@@ -55,15 +55,15 @@ public class Employee {
     /**
      * Конструктор без отчества.
      *
-     * @param last_name  Фамилия сотрудника
-     * @param first_name Имя сотрудника
+     * @param lastName  Фамилия сотрудника
+     * @param firstName Имя сотрудника
      * @param department Отдел сотрудника
      * @param salary     Зарплата сотрудника
      */
 
-    public Employee(String last_name, String first_name, int department, float salary) {
-        setLast_name(last_name);
-        setFirst_name(first_name);
+    public Employee(String lastName, String firstName, int department, float salary) {
+        setLastName(lastName);
+        setFirstName(firstName);
         setDepartment(department);
         setSalary(salary);
         this.id = next_id++;
@@ -74,20 +74,20 @@ public class Employee {
      *
      * @return имя сотрудника
      */
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
      * Устанавливает имя сотрудника.
      * Имя будет установлено только если переданная строка не null и не пустая.
      *
-     * @param first_name имя сотрудника
+     * @param firstName имя сотрудника
      * @throws IllegalArgumentException если имя null или пустое
      */
-    public void setFirst_name(String first_name) {
-        if (first_name != null && !first_name.isBlank()) {
-            this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        if (firstName != null && !firstName.isBlank()) {
+            this.firstName = firstName;
         } else {
             throw new IllegalArgumentException("Поле не может быть пустым");
         }
@@ -98,20 +98,20 @@ public class Employee {
      *
      * @return фамилия сотрудника
      */
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     /**
      * Устанавливает фамилию сотрудника.
      * Фамилия будет установлена только если переданная строка не null и не пустая.
      *
-     * @param last_name фамилия сотрудника
+     * @param lastName фамилия сотрудника
      * @throws IllegalArgumentException если поле null или пустое
      */
-    public void setLast_name(String last_name) {
-        if (last_name != null && !last_name.isBlank()) {
-            this.last_name = last_name;
+    public void setLastName(String lastName) {
+        if (lastName != null && !lastName.isBlank()) {
+            this.lastName = lastName;
         } else {
             throw new IllegalArgumentException("Поле не может быть пустым");
         }
@@ -122,20 +122,20 @@ public class Employee {
      *
      * @return отчество сотрудника
      */
-    public String getMiddle_name() {
-        return middle_name;
+    public String getMiddleName() {
+        return middleName;
     }
 
     /**
      * Устанавливает отчество сотрудника.
      * Отчество будет установлено только если переданная строка не null и не пустая.
      *
-     * @param middle_name отчество сотрудника
+     * @param middleName отчество сотрудника
      * @throws IllegalArgumentException если поле null или пустое
      */
-    public void setMiddle_name(String middle_name) {
-        if (last_name != null && !middle_name.isBlank()) {
-            this.middle_name = middle_name;
+    public void setMiddleName(String middleName) {
+        if (middleName != null && !middleName.isBlank()) {
+            this.middleName = middleName;
         } else {
             throw new IllegalArgumentException("Поле не может быть пустым");
         }
@@ -147,10 +147,10 @@ public class Employee {
      * @return ФИО или ФИ сотрудника
      */
     public String getFullName() {
-        if (middle_name != null && !middle_name.isBlank()) {
-            return last_name + " " + first_name + " " + middle_name;
+        if (middleName != null && !middleName.isBlank()) {
+            return lastName + " " + firstName + " " + middleName;
         } else {
-            return last_name + " " + first_name;
+            return lastName + " " + firstName;
         }
     }
 
@@ -215,14 +215,31 @@ public class Employee {
     public String toString() {
         StringBuilder sb = new StringBuilder("Сотрудник: {");
         sb.append("ID=").append(getId());
-        sb.append(", Фамилия='").append(getLast_name()).append('\'');
-        sb.append(", Имя='").append(getFirst_name()).append('\'');
+        sb.append(", Фамилия='").append(getLastName()).append('\'');
+        sb.append(", Имя='").append(getFirstName()).append('\'');
 
-        if (getMiddle_name() != null && !getMiddle_name().isEmpty()) {
-            sb.append(", Отчество='").append(getMiddle_name()).append('\'');
+        if (getMiddleName() != null && !getMiddleName().isEmpty()) {
+            sb.append(", Отчество='").append(getMiddleName()).append('\'');
         }
 
         sb.append(", Отдел=").append(getDepartment());
+        sb.append(", Зарплата=").append(getSalary());
+        sb.append('}');
+
+        return sb.toString();
+    }
+
+    // Метод для строкового представления без отдела
+    public String toStringWithoutDepartment() {
+        StringBuilder sb = new StringBuilder("Сотрудник: {");
+        sb.append("ID=").append(getId());
+        sb.append(", Фамилия='").append(getLastName()).append('\'');
+        sb.append(", Имя='").append(getFirstName()).append('\'');
+
+        if (getMiddleName() != null && !getMiddleName().isEmpty()) {
+            sb.append(", Отчество='").append(getMiddleName()).append('\'');
+        }
+
         sb.append(", Зарплата=").append(getSalary());
         sb.append('}');
 

@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Сумма затрат на зарплаты отдела: " + TotalSalaryByDept(employees, 1));
         System.out.println("Средняя зарплата по отделу: " + AverageSalaryByDept(employees, 1));
         IndexSalary(employees, 1.2f, 1);
-        EmployeeList(employees);
+        EmployeeListByDept(employees, 1);
 
     }
 
@@ -167,6 +167,15 @@ public class Main {
         for (Employee employee : employees) {
             if (employee!= null && employee.getDepartment() == dept) {
                 employee.setSalary(employee.getSalary() * (1 + index/100));
+            }
+        }
+    }
+
+    // Вывести в консоль список сотрудников отдела
+    public static void EmployeeListByDept(Employee[] employees, int dept) {
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == dept) {
+                System.out.println(employee.toStringWithoutDepartment());
             }
         }
     }
