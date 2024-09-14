@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Сотрудник с минимальной зарплатой: " + MinSalaryEmployee(employees) + " руб.");
         System.out.println("Сотрудник с максимальной зарплатой: " + MaxSalaryEmployee(employees) + " руб.");
         System.out.println("Среднее значение зарплат: " + AverageSalary(employees) + " руб.");
-
+        FullNameList(employees);
     }
 
     // Получить список всех сотрудников со всеми имеющимися по ним данными
@@ -73,5 +73,14 @@ public class Main {
         }
 
         return totalSalary/employeeCount;
+    }
+
+    // Получить Ф. И. О. всех сотрудников (вывести в консоль).
+    public static void FullNameList(Employee[] employees) {
+        for (Employee employee : employees) {
+            if (employee!= null) {
+                System.out.println(employee.getFullName());
+            }
+        }
     }
 }
