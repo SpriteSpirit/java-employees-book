@@ -32,6 +32,8 @@ public class Main {
         employees.DeleteEmployee("Дебекью", "Франсуа");
         employees.DeleteEmployee("Иванов", "Максим", "Викторович");
         employees.DeleteEmployee(2);
+
+        employees.UpdateEmployee("Петров", "Петр", "Иванович", 3, 160000);
         employees.EmployeeList();
     }
 
