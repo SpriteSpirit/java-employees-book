@@ -34,6 +34,7 @@ public class Main {
         employees.DeleteEmployee(2);
 
         employees.UpdateEmployee("Петров", "Петр", "Иванович", 3, 160000);
+        employees.UpdateEmployee("Петров", "Петр", "Иванович", 165000);
         employees.EmployeeList();
     }
 

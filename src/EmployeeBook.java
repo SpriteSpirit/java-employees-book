@@ -68,7 +68,18 @@ public class EmployeeBook {
         }
     }
 
-
+    // Изменить зарплату сотрудника по ФИО
+    public void UpdateEmployee(String lastName, String firstName, String middleName,  float salary) {
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getLastName().equalsIgnoreCase(lastName) &&
+                        employee.getFirstName().equalsIgnoreCase(firstName) &&
+                        employee.getMiddleName().equalsIgnoreCase(middleName)) {
+                    employee.setSalary(salary);
+                }
+            }
+        }
+    }
 
     /**
      * Базовая сложность
