@@ -171,7 +171,7 @@ public class Employee {
      * @throws IllegalArgumentException если значение меньше или равно 0
      */
     public void setDepartment(int department) {
-        if (department > 0) {
+        if (department > 0 && department < 6) {
             this.department = department;
         } else {
             throw new IllegalArgumentException("Значение должно быть больше 0");
