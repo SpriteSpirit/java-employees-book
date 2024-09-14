@@ -23,8 +23,12 @@ public class Main {
         System.out.println("Сотрудник отдела с максимальной зарплатой: " + MaxSalaryEmployeeByDept(employees, 1));
         System.out.println("Сумма затрат на зарплаты отдела: " + TotalSalaryByDept(employees, 1));
         System.out.println("Средняя зарплата по отделу: " + AverageSalaryByDept(employees, 1));
+        IndexSalary(employees, 1.2f, 1);
+        EmployeeList(employees);
 
     }
+
+    /** Базовая сложность */
 
     // Получить список всех сотрудников со всеми имеющимися по ним данными
     public static void EmployeeList(Employee[] employees) {
@@ -103,6 +107,8 @@ public class Main {
         }
     }
 
+    /** Повышенная сложность */
+
     // Найти сотрудника с минимальной зарплатой в отделе.
     public static Employee MinSalaryEmployeeByDept(Employee[] employees, int dept) {
         Employee minSalaryEmployee = null;
@@ -154,5 +160,14 @@ public class Main {
             }
         }
         return totalSalary / employeeCount;
+    }
+
+    // Проиндексировать зарплату у сотрудников отдела на величину аргумента в %.
+    public static void IndexSalary(Employee[] employees, float index, int dept) {
+        for (Employee employee : employees) {
+            if (employee!= null && employee.getDepartment() == dept) {
+                employee.setSalary(employee.getSalary() * (1 + index/100));
+            }
+        }
     }
 }
