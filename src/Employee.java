@@ -27,42 +27,46 @@ public class Employee {
     /**
      * Уникальный идентификатор сотрудника
      */
-    private static int id = 1;
+    private int id = 1;
+    /**
+     * Счетчик идентификатора сотрудника
+     */
+    private static int next_id = 1;
 
     /**
      * Конструктор с отчеством.
      *
-     * @param first_name  Имя сотрудника
      * @param last_name   Фамилия сотрудника
+     * @param first_name  Имя сотрудника
      * @param middle_name Отчество сотрудника
      * @param department  Отдел сотрудника
      * @param salary      Зарплата сотрудника
      */
 
-    public Employee(String first_name, String last_name, String middle_name, int department, float salary) {
-        setFirst_name(first_name);
+    public Employee(String last_name, String first_name, String middle_name, int department, float salary) {
         setLast_name(last_name);
+        setFirst_name(first_name);
         setMiddle_name(middle_name);
         setDepartment(department);
         setSalary(salary);
-        this.id = id++;
+        this.id = next_id++;
     }
 
     /**
      * Конструктор без отчества.
      *
-     * @param first_name Имя сотрудника
      * @param last_name  Фамилия сотрудника
+     * @param first_name Имя сотрудника
      * @param department Отдел сотрудника
      * @param salary     Зарплата сотрудника
      */
 
-    public Employee(String first_name, String last_name, int department, float salary) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.department = department;
-        this.salary = salary;
-        this.id = id++;
+    public Employee(String last_name, String first_name, int department, float salary) {
+        setLast_name(last_name);
+        setFirst_name(first_name);
+        setDepartment(department);
+        setSalary(salary);
+        this.id = next_id++;
     }
 
     /**
@@ -190,7 +194,25 @@ public class Employee {
      *
      * @return id сотрудника
      */
-    public static int getId() {
+    public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Сотрудник: {");
+        sb.append("Фамилия='").append(getLast_name()).append('\'');
+        sb.append(", Имя='").append(getFirst_name()).append('\'');
+
+        if (getMiddle_name() != null && !getMiddle_name().isEmpty()) {
+            sb.append(", Отчество='").append(getMiddle_name()).append('\'');
+        }
+
+        sb.append(", Отдел=").append(getDepartment());
+        sb.append(", Зарплата=").append(getSalary());
+        sb.append(", ID=").append(getId());
+        sb.append('}');
+
+        return sb.toString();
     }
 }
