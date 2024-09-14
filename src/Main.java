@@ -21,7 +21,8 @@ public class Main {
 
         System.out.println("Сотрудник отдела с минимальной зарплатой: " + MinSalaryEmployeeByDept(employees, 1));
         System.out.println("Сотрудник отдела с максимальной зарплатой: " + MaxSalaryEmployeeByDept(employees, 1));
-        System.out.println("Сумма затрат на зарплаты отдела: " + TotalSalaryByDept(employees, 2));
+        System.out.println("Сумма затрат на зарплаты отдела: " + TotalSalaryByDept(employees, 1));
+        System.out.println("Средняя зарплата по отделу: " + AverageSalaryByDept(employees, 1));
 
     }
 
@@ -130,8 +131,7 @@ public class Main {
         return maxSalaryEmployee;
     }
 
-
-    // Сумму затрат на зарплату по отделу.
+    // Найти сумму затрат на зарплату по отделу.
     public static float TotalSalaryByDept(Employee[] employees, int dept) {
         float totalSalary = 0;
 
@@ -143,5 +143,16 @@ public class Main {
         return totalSalary;
     }
 
+    // Найти среднюю зарплату по отделу
+    public static float AverageSalaryByDept(Employee[] employees, int dept){
+        int employeeCount = 0;
+        float totalSalary = TotalSalaryByDept(employees, dept);
 
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == dept) {
+                employeeCount++;
+            }
+        }
+        return totalSalary / employeeCount;
+    }
 }
