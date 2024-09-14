@@ -14,6 +14,8 @@ public class Main {
         System.out.println("Сотрудник с максимальной зарплатой: " + MaxSalaryEmployee(employees) + " руб.");
         System.out.println("Среднее значение зарплат: " + AverageSalary(employees) + " руб.");
         FullNameList(employees);
+        IndexSalary(employees, 1.2f);
+        EmployeeList(employees);
     }
 
     // Получить список всех сотрудников со всеми имеющимися по ним данными
@@ -80,6 +82,15 @@ public class Main {
         for (Employee employee : employees) {
             if (employee!= null) {
                 System.out.println(employee.getFullName());
+            }
+        }
+    }
+
+    // Проиндексировать зарплату у всех сотрудников на величину аргумента в %.
+    public static void IndexSalary(Employee[] employees, float index) {
+        for (Employee employee : employees) {
+            if (employee!= null) {
+                employee.setSalary(employee.getSalary() * (1 + index/100));
             }
         }
     }
