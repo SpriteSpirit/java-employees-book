@@ -26,6 +26,7 @@ public class Main {
         IndexSalary(employees, 1.2f, 1);
         EmployeeListByDept(employees, 1);
         FindEmployeesWithSalaryLessThan(employees, 160_000f);
+        FindEmployeesWithSalaryMoreOrEqualThan(employees, 150_000f);
     }
 
     /**
@@ -186,8 +187,29 @@ public class Main {
 
     // Найти всех сотрудников с зарплатой меньше числа
     public static void FindEmployeesWithSalaryLessThan(Employee[] employees, float salary) {
+        System.out.println("----------------------------------------");
+        System.out.println("Сотрудники с зарплатой меньше " + salary + " руб.");
+        System.out.println("----------------------------------------");
+
         for (Employee employee : employees) {
             if (employee != null && employee.getSalary() < salary) {
+                System.out.printf("ID: %d, %s, %.2f руб.\n",
+                        employee.getId(),
+                        employee.getFullName(),
+                        employee.getSalary()
+                );
+            }
+        }
+    }
+
+    // Найти всех сотрудников с зарплатой больше или равной числу
+    public static void FindEmployeesWithSalaryMoreOrEqualThan(Employee[] employees, float salary) {
+        System.out.println("----------------------------------------");
+        System.out.println("Сотрудники с зарплатой больше или равной " + salary + " руб.");
+        System.out.println("----------------------------------------");
+
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() >= salary) {
                 System.out.printf("ID: %d, %s, %.2f руб.\n",
                         employee.getId(),
                         employee.getFullName(),
