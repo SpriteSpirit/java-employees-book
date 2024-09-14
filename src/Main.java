@@ -3,30 +3,31 @@ public class Main {
     public static void main(String[] args) {
         EmployeeBook employees = new EmployeeBook(10);
 
-//        employees[0] = new Employee("Петров", "Петр", "Иванович", 5, 150_000f);
-//        employees[1] = new Employee("Романеско", "Артуар", 2, 130_000f);
-//        employees[2] = new Employee("Маркиз", "Леруа", 3, 160_000f);
-//        employees[3] = new Employee("Дебекью", "Франсуа", 3, 155_000f);
-//        employees[4] = new Employee("Иванов", "Максим", "Викторович", 1, 180_000f);
-//        employees[5] = new Employee("Смирнов", "Евгений", "Маркович", 1, 170_000f);
-//
-//        EmployeeList(employees);
-//        System.out.println("Сумма затрат на зарплаты на месяц: " + TotalSalaryByMonth(employees) + " руб.");
-//        System.out.println("Сотрудник с минимальной зарплатой: " + MinSalaryEmployee(employees) + " руб.");
-//        System.out.println("Сотрудник с максимальной зарплатой: " + MaxSalaryEmployee(employees) + " руб.");
-//        System.out.println("Среднее значение зарплат: " + AverageSalary(employees) + " руб.");
-//        FullNameList(employees);
-//        IndexSalary(employees, 1.2f);
-//        EmployeeList(employees);
-//
-//        System.out.println("Сотрудник отдела с минимальной зарплатой: " + MinSalaryEmployeeByDept(employees, 1));
-//        System.out.println("Сотрудник отдела с максимальной зарплатой: " + MaxSalaryEmployeeByDept(employees, 1));
-//        System.out.println("Сумма затрат на зарплаты отдела: " + TotalSalaryByDept(employees, 1));
-//        System.out.println("Средняя зарплата по отделу: " + AverageSalaryByDept(employees, 1));
-//        IndexSalary(employees, 1.2f, 1);
-//        EmployeeListByDept(employees, 1);
-//        FindEmployeesWithSalaryLessThan(employees, 160_000f);
-//        FindEmployeesWithSalaryMoreOrEqualThan(employees, 150_000f);
+        employees.AddEmployee(new Employee("Петров", "Петр", "Иванович", 5, 150_000f));
+        employees.AddEmployee(new Employee("Романеско", "Артуар", 2, 130_000f));
+        employees.AddEmployee(new Employee("Маркиз", "Леруа", 3, 160_000f));
+        employees.AddEmployee(new Employee("Дебекью", "Франсуа", 3, 155_000f));
+        employees.AddEmployee(new Employee("Иванов", "Максим", "Викторович", 1, 180_000f));
+        employees.AddEmployee(new Employee("Смирнов", "Евгений", "Маркович", 1, 170_000f));
+
+
+        employees.EmployeeList();
+        System.out.println("Сумма затрат на зарплаты на месяц: " + employees.TotalSalaryByMonth() + " руб.");
+        System.out.println("Сотрудник с минимальной зарплатой: " + employees.MinSalaryEmployee() + " руб.");
+        System.out.println("Сотрудник с максимальной зарплатой: " + employees.MaxSalaryEmployee() + " руб.");
+        System.out.println("Среднее значение зарплат: " + employees.AverageSalary() + " руб.");
+        employees.FullNameList();
+        employees.IndexSalary(1.2f);
+        employees.EmployeeList();
+
+        System.out.println("Сотрудник отдела с минимальной зарплатой: " + employees.MinSalaryEmployeeByDept(1));
+        System.out.println("Сотрудник отдела с максимальной зарплатой: " + employees.MaxSalaryEmployeeByDept(1));
+        System.out.println("Сумма затрат на зарплаты отдела: " + employees.TotalSalaryByDept(1));
+        System.out.println("Средняя зарплата по отделу: " + employees.AverageSalaryByDept(1));
+        employees.IndexSalary(1.2f, 1);
+        employees.EmployeeListByDept(1);
+        employees.FindEmployeesWithSalaryLessThan(160_000f);
+        employees.FindEmployeesWithSalaryMoreOrEqualThan(150_000f);
     }
 
 
