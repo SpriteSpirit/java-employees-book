@@ -214,7 +214,8 @@ public class Employee {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Сотрудник: {");
-        sb.append("Фамилия='").append(getLast_name()).append('\'');
+        sb.append("ID=").append(getId());
+        sb.append(", Фамилия='").append(getLast_name()).append('\'');
         sb.append(", Имя='").append(getFirst_name()).append('\'');
 
         if (getMiddle_name() != null && !getMiddle_name().isEmpty()) {
@@ -223,7 +224,6 @@ public class Employee {
 
         sb.append(", Отдел=").append(getDepartment());
         sb.append(", Зарплата=").append(getSalary());
-        sb.append(", ID=").append(getId());
         sb.append('}');
 
         return sb.toString();
