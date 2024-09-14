@@ -25,10 +25,12 @@ public class Main {
         System.out.println("Средняя зарплата по отделу: " + AverageSalaryByDept(employees, 1));
         IndexSalary(employees, 1.2f, 1);
         EmployeeListByDept(employees, 1);
-
+        FindEmployeesWithSalaryLessThan(employees, 160_000f);
     }
 
-    /** Базовая сложность */
+    /**
+     * Базовая сложность
+     */
 
     // Получить список всех сотрудников со всеми имеющимися по ним данными
     public static void EmployeeList(Employee[] employees) {
@@ -81,18 +83,18 @@ public class Main {
         float totalSalary = TotalSalaryByMonth(employees);
 
         for (Employee employee : employees) {
-            if (employee!= null) {
+            if (employee != null) {
                 employeeCount++;
             }
         }
 
-        return totalSalary/employeeCount;
+        return totalSalary / employeeCount;
     }
 
     // Получить Ф. И. О. всех сотрудников (вывести в консоль).
     public static void FullNameList(Employee[] employees) {
         for (Employee employee : employees) {
-            if (employee!= null) {
+            if (employee != null) {
                 System.out.println(employee.getFullName());
             }
         }
@@ -101,13 +103,15 @@ public class Main {
     // Проиндексировать зарплату у всех сотрудников на величину аргумента в %.
     public static void IndexSalary(Employee[] employees, float index) {
         for (Employee employee : employees) {
-            if (employee!= null) {
-                employee.setSalary(employee.getSalary() * (1 + index/100));
+            if (employee != null) {
+                employee.setSalary(employee.getSalary() * (1 + index / 100));
             }
         }
     }
 
-    /** Повышенная сложность */
+    /**
+     * Повышенная сложность
+     */
 
     // Найти сотрудника с минимальной зарплатой в отделе.
     public static Employee MinSalaryEmployeeByDept(Employee[] employees, int dept) {
@@ -150,7 +154,7 @@ public class Main {
     }
 
     // Найти среднюю зарплату по отделу
-    public static float AverageSalaryByDept(Employee[] employees, int dept){
+    public static float AverageSalaryByDept(Employee[] employees, int dept) {
         int employeeCount = 0;
         float totalSalary = TotalSalaryByDept(employees, dept);
 
@@ -165,8 +169,8 @@ public class Main {
     // Проиндексировать зарплату у сотрудников отдела на величину аргумента в %.
     public static void IndexSalary(Employee[] employees, float index, int dept) {
         for (Employee employee : employees) {
-            if (employee!= null && employee.getDepartment() == dept) {
-                employee.setSalary(employee.getSalary() * (1 + index/100));
+            if (employee != null && employee.getDepartment() == dept) {
+                employee.setSalary(employee.getSalary() * (1 + index / 100));
             }
         }
     }
@@ -176,6 +180,19 @@ public class Main {
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartment() == dept) {
                 System.out.println(employee.toStringWithoutDepartment());
+            }
+        }
+    }
+
+    // Найти всех сотрудников с зарплатой меньше числа
+    public static void FindEmployeesWithSalaryLessThan(Employee[] employees, float salary) {
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() < salary) {
+                System.out.printf("ID: %d, %s, %.2f руб.\n",
+                        employee.getId(),
+                        employee.getFullName(),
+                        employee.getSalary()
+                );
             }
         }
     }
