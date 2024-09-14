@@ -20,6 +20,7 @@ public class Main {
         EmployeeList(employees);
 
         System.out.println("Сотрудник отдела с минимальной зарплатой: " + MinSalaryEmployeeByDept(employees, 1));
+        System.out.println("Сотрудник отдела с максимальной зарплатой: " + MaxSalaryEmployeeByDept(employees, 1));
 
     }
 
@@ -114,4 +115,17 @@ public class Main {
         return minSalaryEmployee;
     }
 
+    // Найти сотрудника с максимальной зарплатой в отделе.
+    public static Employee MaxSalaryEmployeeByDept(Employee[] employees, int dept) {
+        Employee maxSalaryEmployee = null;
+
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == dept) {
+                if (maxSalaryEmployee == null || employee.getSalary() > maxSalaryEmployee.getSalary()) {
+                    maxSalaryEmployee = employee;
+                }
+            }
+        }
+        return maxSalaryEmployee;
+    }
 }
