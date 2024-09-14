@@ -28,6 +28,11 @@ public class Main {
         employees.EmployeeListByDept(1);
         employees.FindEmployeesWithSalaryLessThan(160_000f);
         employees.FindEmployeesWithSalaryMoreOrEqualThan(150_000f);
+
+        employees.DeleteEmployee("Дебекью", "Франсуа");
+        employees.DeleteEmployee("Иванов", "Максим", "Викторович");
+        employees.DeleteEmployee(2);
+        employees.EmployeeList();
     }
 
 

@@ -1,5 +1,5 @@
 public class EmployeeBook {
-    private Employee[] employees;
+    private final Employee[] employees;
 
     public EmployeeBook(int size) {
         employees = new Employee[size];
@@ -15,11 +15,50 @@ public class EmployeeBook {
         }
     }
 
+    // Удаление сотрудника по ФИО
+    public void DeleteEmployee(String lastName, String firstName, String middleName) {
+        for (int i = 0; i < employees.length; i++) {
+            Employee employee = employees[i];
+            if (employee != null && employee.getLastName().equalsIgnoreCase(lastName)
+                    && employee.getFirstName().equalsIgnoreCase(firstName)
+                    && employee.getMiddleName().equalsIgnoreCase(middleName)) {
+                employees[i] = null;
+                break;
+            }
+        }
+    }
+
+    // Удаление сотрудника по ФИ
+    public void DeleteEmployee(String lastName, String firstName) {
+        for (int i = 0; i < employees.length; i++) {
+            Employee employee = employees[i];
+            if (employee != null) {
+                if (employee.getLastName().equalsIgnoreCase(lastName) && employee.getFirstName().equalsIgnoreCase(firstName)) {
+                    employees[i] = null;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Удаление сотрудника по id
+    public void DeleteEmployee(int id) {
+        for (int i = 0; i < employees.length; i++) {
+            Employee employee = employees[i];
+            if (employee != null) {
+                if (employee.getId() == id) {
+                    employees[i] = null;
+                    break;
+                }
+            }
+        }
+    }
+
     /**
      * Базовая сложность
      */
 
-    // Получить список всех сотрудников со всеми имеющимися по ним данными
+// Получить список всех сотрудников со всеми имеющимися по ним данными
     public void EmployeeList() {
         for (Employee employee : employees) {
             if (employee != null) {
@@ -100,7 +139,7 @@ public class EmployeeBook {
      * Повышенная сложность
      */
 
-    // Найти сотрудника с минимальной зарплатой в отделе.
+// Найти сотрудника с минимальной зарплатой в отделе.
     public Employee MinSalaryEmployeeByDept(int dept) {
         Employee minSalaryEmployee = null;
 
@@ -152,6 +191,7 @@ public class EmployeeBook {
         }
         return totalSalary / employeeCount;
     }
+
     // Проиндексировать зарплату у сотрудников отдела на величину аргумента в %.
     public void IndexSalary(float index, int dept) {
         for (Employee employee : employees) {
