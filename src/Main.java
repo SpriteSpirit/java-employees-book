@@ -11,6 +11,7 @@ public class Main {
         EmployeeList(employees);
         System.out.println("Сумма затрат на зарплаты на месяц: " + TotalSalaryByMonth(employees) + " руб.");
         System.out.println("Сотрудник с минимальной зарплатой: " + MinSalaryEmployee(employees) + " руб.");
+        System.out.println("Сотрудник с максимальной зарплатой: " + MaxSalaryEmployee(employees) + " руб.");
 
     }
 
@@ -45,5 +46,17 @@ public class Main {
             }
         }
         return minSalaryEmployee;
+    }
+
+    // Найти сотрудника с максимальной зарплатой.
+    public static Employee MaxSalaryEmployee(Employee[] employees) {
+        Employee maxSalaryEmployee = employees[0];
+
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() > maxSalaryEmployee.getSalary()) {
+                maxSalaryEmployee = employee;
+            }
+        }
+        return maxSalaryEmployee;
     }
 }
