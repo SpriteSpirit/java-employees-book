@@ -12,6 +12,7 @@ public class Main {
         System.out.println("Сумма затрат на зарплаты на месяц: " + TotalSalaryByMonth(employees) + " руб.");
         System.out.println("Сотрудник с минимальной зарплатой: " + MinSalaryEmployee(employees) + " руб.");
         System.out.println("Сотрудник с максимальной зарплатой: " + MaxSalaryEmployee(employees) + " руб.");
+        System.out.println("Среднее значение зарплат: " + AverageSalary(employees) + " руб.");
 
     }
 
@@ -58,5 +59,19 @@ public class Main {
             }
         }
         return maxSalaryEmployee;
+    }
+
+    // Подсчитать среднее значение зарплат
+    public static float AverageSalary(Employee[] employees) {
+        int employeeCount = 0;
+        float totalSalary = TotalSalaryByMonth(employees);
+
+        for (Employee employee : employees) {
+            if (employee!= null) {
+                employeeCount++;
+            }
+        }
+
+        return totalSalary/employeeCount;
     }
 }
