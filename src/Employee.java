@@ -211,6 +211,11 @@ public class Employee {
         return id;
     }
 
+    /**
+     * Метод для строкового представления без отдела
+     *
+     * @return вся информация о сотруднике в строковом представлении
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Сотрудник: {");
@@ -229,7 +234,11 @@ public class Employee {
         return sb.toString();
     }
 
-    // Метод для строкового представления без отдела
+    /**
+     * Метод для строкового представления без отдела
+     *
+     * @return информация о сотруднике без указания отдела
+     */
     public String toStringWithoutDepartment() {
         StringBuilder sb = new StringBuilder("Сотрудник: {");
         sb.append("ID=").append(getId());
